@@ -176,7 +176,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 450
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -200,7 +200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 425, y: -180, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -280,12 +280,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7875cda162eb9634e81c89ad17447dd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bgold: {fileID: 4567219938598154167, guid: 854195a694fabfe409ce56c97beb768d, type: 3}
-  Mgold: {fileID: 4567219938598154167, guid: 728f07bc3fdfd5d45b0630b78e4fe573, type: 3}
-  Sgold: {fileID: 4567219938598154167, guid: ba6a3e0e90a7456438c038b97668a136, type: 3}
-  Bstone: {fileID: 1128652388926510123, guid: e02f0fbbbb52859429d77bb18f5b1607, type: 3}
-  Mstone: {fileID: 1128652388926510123, guid: b191f2d4ea6497c4181b7e4cbfe4e8d8, type: 3}
-  Sstone: {fileID: 1128652388926510123, guid: afe25d6f40f06b546a41393542391ccd, type: 3}
+  Bgold: {fileID: 3799115151312205050, guid: 78e0f40ca0d0cd4458f30947d645f53a, type: 3}
+  Mgold: {fileID: 3799115151312205050, guid: d8baa60b0db9efc4893a721dacd465fe, type: 3}
+  Sgold: {fileID: 3799115151312205050, guid: 11faa2a4262fe274caf7dfab24d5d11b, type: 3}
+  Bstone: {fileID: 4257306997748084835, guid: 32941799144f7004bb3e352620162400, type: 3}
+  Mstone: {fileID: 4257306997748084835, guid: d5c1991edafef194781f58144b73b37d, type: 3}
+  Sstone: {fileID: 4257306997748084835, guid: 8a71d1f56043fd34a868a216c055d529, type: 3}
   level: 100
   bgold: 2
   mgold: 5
