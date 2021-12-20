@@ -200,7 +200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 425, y: -180, z: -10}
+  m_LocalPosition: {x: 425, y: -170, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -286,6 +286,7 @@ MonoBehaviour:
   Bstone: {fileID: 3228133460695619892, guid: cd7989538c5a6664495f12bd7c284d19, type: 3}
   Mstone: {fileID: 4854006128933964516, guid: df71d260964778a43b7fdc78f635af63, type: 3}
   Sstone: {fileID: 6850872851075430106, guid: 000a1159f713e3946bd2f18b748d9c9d, type: 3}
+  Qpack: {fileID: 1272940150291219014, guid: 72e118266b1103b4fb30a841bb172a59, type: 3}
   level: 100
   bgold: 2
   mgold: 5
