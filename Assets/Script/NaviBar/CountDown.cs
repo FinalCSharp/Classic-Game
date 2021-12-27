@@ -25,6 +25,10 @@ public class CountDown : MonoBehaviour
         {
             initTime = (int)(Time.time - timeNow);
             txt.text = System.Convert.ToString(60 - initTime);
+            if (initTime == 60)
+            {
+                //should endgame here and check next level condition is satisfied or not
+            }
         }
     }
 }
