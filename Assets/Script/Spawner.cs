@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject Bgold, Mgold, Sgold, Bstone, Mstone, Sstone;
+    public GameObject Bgold, Mgold, Sgold, Bstone, Mstone, Sstone, Qpack;
     public int level;
     public int bgold, mgold, sgold, bstone, mstone, sstone;
     System.Random rdm = new System.Random();
@@ -32,6 +32,9 @@ public class Spawner : MonoBehaviour
             case 6:
                 label = Instantiate(Sstone);
                 break;
+            case 7:
+                label = Instantiate(Qpack);
+                break;
             default:
                 label = Instantiate(Sstone);
                 break;
@@ -47,7 +50,7 @@ public class Spawner : MonoBehaviour
     }
     private List<pack> biggoldlist = new List<pack>();
     private List<pack> goldlist = new List<pack>();
-    private List<pack> stonelist = new List<pack>();
+    private List<pack> buildList = new List<pack>();
     private List<pack> combinedlist = new List<pack>();
     private bool isEmpty(int x, int y, int size, List<pack> ls, bool isSameItem)
     {
@@ -86,8 +89,10 @@ public class Spawner : MonoBehaviour
     private void reset()
     {
         biggoldlist.Clear();
-        stonelist.Clear();
+        buildList.Clear();
         combinedlist.Clear();
+
+        for (int i = 0; i < transform.childCount; i++) Destroy(transform.GetChild(i).gameObject);
     }
     private void buildGold(int tp, int type, bool isBigBig, int size, int margin, double distance)
     {
@@ -109,7 +114,7 @@ public class Spawner : MonoBehaviour
                     tx = rdm.Next(0, MaxWidth - 50 + 1);
                     int min = System.Convert.ToInt32(radius * getAbs(tx, MaxWidth / 2));
 
-                    ty = rdm.Next((min + level * 2 > 550) ? 550 : min + level * 2, 550 + 1);
+                    ty = rdm.Next((min + level * 2 > MaxHeight-50 ) ? 550 : min + level * 2, MaxHeight + 1);
                 }
                 else
                 {
@@ -130,6 +135,7 @@ public class Spawner : MonoBehaviour
             {
                 GameObject tpLabel = newObject(type, size);
                 tpLabel.transform.position = new Vector2(tx, -ty);
+                tpLabel.transform.parent = transform;
                 pack newPack;
                 newPack.x = tx;
                 newPack.y = ty;
@@ -142,11 +148,10 @@ public class Spawner : MonoBehaviour
                 tp--;
             }
         }
-        foreach (pack pck in ls) pck.label.transform.parent=transform;
     }
-    private void buildStone(int tp, int type, int size, int margin, double distance)
+    private void build(int tp, int type, int size, int margin, double distance)
     {
-        stonelist.Clear();
+        buildList.Clear();
         int tx, ty;
         int round_count = 0;
         bool restart = false;
@@ -155,7 +160,7 @@ public class Spawner : MonoBehaviour
             int counter = 0;
             bool isLegal = true;
 
-            int yAxis = rdm.Next(0 + level / 10, 101);
+            int yAxis = rdm.Next(level / 10, 101);
             if (yAxis >= 50)
             {
                 if (biggoldlist.Count <= 0) continue;
@@ -181,7 +186,7 @@ public class Spawner : MonoBehaviour
                         restart = true;
                         break;
                     }
-                } while (!isEmpty(tx, ty, 15, combinedlist, false) || !isEmpty(tx, ty, 15, biggoldlist, false) || !isEmpty(tx, ty, 15, stonelist, true));
+                } while (ty < 50||!isEmpty(tx, ty, 15, combinedlist, false) || !isEmpty(tx, ty, 15, biggoldlist, false) || !isEmpty(tx, ty, 15, buildList, true));
             }
             else
             {
@@ -203,14 +208,15 @@ public class Spawner : MonoBehaviour
                         break;
                     }
                 }
-                while (!isEmpty(tx, ty, 15, combinedlist, false) || !isEmpty(tx, ty, 15, biggoldlist, false) || (!isEmpty(tx, ty, 15, stonelist, true)));
+                while (!isEmpty(tx, ty, 15, combinedlist, false) || !isEmpty(tx, ty, 15, biggoldlist, false) || (!isEmpty(tx, ty, 15, buildList, true)));
             }
             if (!isLegal)
-                buildStone(tp, type, size, margin, distance);
+                build(tp, type, size, margin, distance);
             else
             {
                 GameObject tpLabel = newObject(type, size);
                 tpLabel.transform.position = new Vector2(tx, -ty);
+                tpLabel.transform.parent = transform;
                 pack newPack;
                 newPack.x = tx;
                 newPack.y = ty;
@@ -219,13 +225,12 @@ public class Spawner : MonoBehaviour
                 newPack.margin = margin;
                 newPack.betweenDistance = System.Convert.ToInt32(distance);
                 newPack.label = tpLabel;
-                stonelist.Add(newPack);
+                buildList.Add(newPack);
                 tp--;
             }
         }
-        foreach (pack pck in stonelist) pck.label.transform.parent = transform;
         if (restart)
-            build();
+            spawn();
     }
     
     private void combine(List<pack> targetList, List<pack> list, bool isFree)
@@ -234,31 +239,35 @@ public class Spawner : MonoBehaviour
         if (isFree)
             list.Clear();
     }
-    private void build()
+    private void spawn()
     {
         reset();
-        buildGold(bgold, 1, true, 100, 35, MaxWidth * 0.45);//biggoldlist should not be combied XD...
-        buildGold(mgold, 2, false, 35, 25, MaxWidth * 0.05);
+        int QpackNum = rdm.Next() % 3;
+        build(QpackNum, 7, 35, 80, MaxWidth * 0.45);//build Qpack
+        combine(combinedlist, buildList, true);
+        buildGold(bgold, 1, true, 100, 50, MaxWidth * 0.45);//biggoldlist should not be combied XD...
+        buildGold(mgold, 2, false, 35, 50, MaxWidth * 0.05);
         combine(combinedlist, goldlist, true);
-        buildGold(sgold, 3, false, 25, 15, MaxWidth * 0.05);
+        buildGold(sgold, 3, false, 25, 50, MaxWidth * 0.05);
         combine(combinedlist, goldlist, true);
-        buildStone(bstone, 4, 45, 45, MaxWidth * 0.1);//big stone
-        combine(combinedlist, stonelist, true);
-        buildStone(mstone, 5, 35, 35, MaxWidth * 0.05);
-        combine(combinedlist, stonelist, true);
-        buildStone(sstone, 6, 25, 25, MaxWidth * 0.05);
-        combine(combinedlist, stonelist, true);
+        build(bstone, 4, 45, 80, MaxWidth * 0.1);//big stone
+        combine(combinedlist, buildList, true);
+        build(mstone, 5, 35, 60, MaxWidth * 0.05);
+        combine(combinedlist, buildList, true);
+        build(sstone, 6, 25, 60, MaxWidth * 0.05);
+        combine(combinedlist, buildList, true);
     }
     // Start is called before the first frame update
     void Start()
     {
-        MaxWidth = 900; MaxHeight = 600;
-        build();
+        MaxWidth = 900; MaxHeight = 550;
+        spawn();
+        // GameObject.Find().GetComponent<>.SendMessage("spawned"); //here is use to send the message that the map has been spawn
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
