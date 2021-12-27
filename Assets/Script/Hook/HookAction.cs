@@ -9,12 +9,15 @@ public class HookAction : MonoBehaviour
     //fix:3. the y direction is wrong.
     private bool MOVE = false, shouldUp = false;
     private bool R_direction = true;
-    public float originRotationPoint = 64.199f, ableRationDegree = 70, hookSpeed = 5;
+    public float originRotationPoint = 64.199f, ableRationDegree = 70, hookSpeed = 150,rotateSpeed = 200;
+    float originX, originY;
     float totalX, totalY, x;
     // Start is called before the first frame update
     void Start()
     {
         totalX = totalY = 0; // init
+        originX = transform.localPosition.x;
+        originY = transform.localPosition.y;
         //start rortate
         rotating();
         //set the start point.
@@ -39,10 +42,11 @@ public class HookAction : MonoBehaviour
     }
     void Up()
     {
-        transform.Translate(-x, 1f, 0);
+        transform.Translate(-x, hookSpeed * Time.deltaTime , 0);
         totalX -= x;
-        totalY += 1;
-        if (totalY == 0) {
+        totalY += hookSpeed * Time.deltaTime;
+        if (totalY >= 0) {
+            transform.localPosition = new Vector2(originX, originY);
             shouldUp = false;
             MOVE = false;
         }
@@ -51,23 +55,16 @@ public class HookAction : MonoBehaviour
         //moving toward the angel chosen.
         float degree = originRotationPoint - transform.rotation.z;
         //follow the degree to fly ~~~
-        x = -1 / (float)System.Math.Cos(degree);
-        transform.Translate(x, -1f, 0);
-        totalY -= 1;
+        x = -hookSpeed / (float)System.Math.Cos(degree) * Time.deltaTime;
+        transform.Translate(x, -hookSpeed * Time.deltaTime, 0);
+        totalY -= hookSpeed * Time.deltaTime;
         totalX = totalY / (float)System.Math.Cos(degree);
-        Debug.Log(totalX);
 
-        if (totalX > 600 || totalX < -600
-            ||totalY < -600)
+        if (totalX > 700 || totalX < -700
+            ||totalY < -700)
         {
             shouldUp = true;
         }
-    }
-    void Back(float weight) {
-        //if hook fin. set MOVE to false;
-        transform.Translate(0, 0.1f*weight, 0);
-        if (gameObject.transform.position == new Vector3(0, 0, 0))
-            MOVE = false;
     }
     void rotating()
     {
@@ -78,9 +75,10 @@ public class HookAction : MonoBehaviour
             R_direction = false;
         else if (z <= originRotationPoint - ableRationDegree && !R_direction)
             R_direction = true;
-        if (R_direction) transform.Rotate(0, 0, 0.25f);
-        else transform.Rotate(0, 0 , -0.25f);
+        if (R_direction) transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
+        else transform.Rotate(0, 0 , -rotateSpeed * Time.deltaTime);
     }
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         /*
@@ -88,5 +86,6 @@ public class HookAction : MonoBehaviour
             //Back();//Q: game object mass?
         }
         */
+        Debug.Log(collision.gameObject.name);
     }
 }
