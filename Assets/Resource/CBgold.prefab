@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2111514261630235880}
   - component: {fileID: 6274605815150422928}
+  - component: {fileID: 8478796001606823134}
   m_Layer: 0
   m_Name: CBgold
   m_TagString: Untagged
@@ -82,3 +83,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &8478796001606823134
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059347082486328246}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1, y: -0.1}
+  - {x: -0.93846107, y: -0.3234877}
+  - {x: -0.80352134, y: -0.508142}
+  - {x: -0.5478461, y: -0.63597953}
+  - {x: -0.34898755, y: -0.8632464}
+  - {x: -0.13725321, y: -0.9310014}
+  - {x: 0.14223613, y: -0.90559334}
+  - {x: 0.32856238, y: -0.7192671}
+  - {x: 0.48101115, y: -0.6853895}
+  - {x: 0.69274557, y: -0.76161385}
+  - {x: 0.862133, y: -0.6599813}
+  - {x: 1.0315206, y: -0.3212064}
+  - {x: 0.93835753, y: 0.64430225}
+  - {x: 0.7436467, y: 0.8478637}
+  - {x: 0.38962686, y: 0.8301627}
+  - {x: 0.079859495, y: 0.9186677}
+  - {x: -0.079449415, y: 0.84786373}
+  - {x: -0.35381475, y: 0.88326573}
+  - {x: -0.6193297, y: 0.7416578}
+  - {x: -0.8671435, y: 0.5115449}
+  - {x: -0.84059197, y: 0.35223597}
+  - {x: -0.8317414, y: 0.21062803}
+  - {x: -0.7963394, y: 0.18407655}
+  - {x: -0.9821997, y: 0.024767637}
+  - {x: -1, y: -0.1}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 1
+  m_UseAdjacentEndPoint: 1
