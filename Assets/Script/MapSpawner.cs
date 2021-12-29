@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class MapSpawner : MonoBehaviour
 {
     public GameObject Bgold, Mgold, Sgold, Bstone, Mstone, Sstone, Qpack;
     public int level;
     public int bgold, mgold, sgold, bstone, mstone, sstone;
     System.Random rdm = new System.Random();
-
     private GameObject newObject(int type, int size)
     {
         GameObject label;
@@ -262,6 +261,7 @@ public class Spawner : MonoBehaviour
     {
         MaxWidth = 900; MaxHeight = 550;
         spawn();
+        GameObject.Find("CountDown").SendMessage("start");
         // GameObject.Find().GetComponent<>.SendMessage("spawned"); //here is use to send the message that the map has been spawn
     }
 

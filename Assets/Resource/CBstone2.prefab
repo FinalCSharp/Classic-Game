@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6623585451208875764}
   - component: {fileID: 3411273245255463702}
+  - component: {fileID: 5330728784390857763}
   m_Layer: 0
   m_Name: CBstone2
   m_TagString: Untagged
@@ -82,3 +83,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &5330728784390857763
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3228133460695619892}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.3793591, y: 0.1289121}
+  - {x: -0.5340536, y: -0.025782406}
+  - {x: -0.5856184, y: -0.1740313}
+  - {x: -0.5662815, y: -0.31583458}
+  - {x: -0.52116233, y: -0.3931818}
+  - {x: -0.39869592, y: -0.4640835}
+  - {x: 0.0073772073, y: -0.44474667}
+  - {x: 0.36833087, y: -0.5092027}
+  - {x: 0.5036886, y: -0.47697473}
+  - {x: 0.5810358, y: -0.2191506}
+  - {x: 0.58748144, y: -0.0386737}
+  - {x: 0.39411327, y: 0.34806257}
+  - {x: 0.21363644, y: 0.5027571}
+  - {x: -0.0055141, y: 0.5285396}
+  - {x: -0.3793591, y: 0.1289121}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
