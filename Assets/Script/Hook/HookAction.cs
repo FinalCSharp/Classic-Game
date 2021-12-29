@@ -5,19 +5,21 @@ using UnityEngine;
 public class HookAction : MonoBehaviour
 {
     private bool MOVE = false, shouldUp = false;
-    private bool R_direction = true;
-    public float originRotationPoint = 64.199f, ableRationDegree = 70, hookSpeed = 150,rotateSpeed = 200;
+    private bool R_direction = true, isPending = false;
+    public float ableRationDegree = 70, hookSpeed = 150,rotateSpeed = 200;
     float duplicatedHookSpeed;
     float originX, originY;
-    float totalX, totalY, degree;
+    float totalX, totalY,xSpeed,ySpeed;
     bool isCathed = false, isQpack = false;
     public float[] qPackSpeedTable;
     public float[] speedTable;
-    GameObject soundPlayer;
+    Transform soundPlayer, score, Hook;
     // Start is called before the first frame update
     void Start()
     {
-        soundPlayer = GameObject.Find("SoundPlayer");
+        soundPlayer = GameObject.Find("SoundPlayer").transform;
+        Hook = transform.parent.parent; // its parent
+        score = GameObject.Find("Score").transform;
         duplicatedHookSpeed = hookSpeed;
         totalX = totalY = 0; // init
         originX = transform.localPosition.x;
@@ -25,7 +27,13 @@ public class HookAction : MonoBehaviour
         //start rortate
         rotating();
         //set the start point.
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, originRotationPoint));
+    }
+    public void hookActionDone()
+    {
+        MOVE = shouldUp = false;
+        score.SendMessage("pickedItem", getItemCode());
+        hookSpeed = duplicatedHookSpeed;//restore speed
+        freeHook();
     }
     // Update is called once per frame
     void Update()
@@ -35,15 +43,16 @@ public class HookAction : MonoBehaviour
         {
             Up();
         }
-        else if (Input.GetKey(KeyCode.DownArrow) && !MOVE)
+        else if (Input.GetKey(KeyCode.DownArrow) && !MOVE )
         {
             totalX = totalY = 0;
             Down();
             MOVE = true;
             isQpack = isCathed = false;
+            xSpeed = hookSpeed * (float)System.Math.Cos(zR);
+            ySpeed = hookSpeed * (float)System.Math.Sin(zR);
         }
         else if (!MOVE) rotating();
-        else Down();
     }
     int getItemCode()
     {
@@ -64,49 +73,36 @@ public class HookAction : MonoBehaviour
     }
     void Up()
     {
-        float x = -hookSpeed / (float)System.Math.Cos(degree) * Time.deltaTime;
-        transform.Translate(-x, hookSpeed * Time.deltaTime , 0);
-        if (transform.localPosition.y >= originY) {
-            transform.localPosition = new Vector2(originX, originY);
-            shouldUp = false;
-            MOVE = false;
-            int code = getItemCode();
-            GameObject.Find("Score").SendMessage("pickedItem", code);
-            if(code != -1)
-                freeHook();
-            revertHookSpeed();
-        }
+        Hook.SendMessage("up", hookSpeed);
     }
     void Down() {
-        //moving toward the angel chosen.
-        degree = originRotationPoint - transform.rotation.z;
-        //follow the degree to fly ~~~
-        float x = -hookSpeed / (float)System.Math.Cos(degree) * Time.deltaTime;
-        transform.Translate(x, -hookSpeed * Time.deltaTime, 0);
-        totalY -= hookSpeed * Time.deltaTime;
-        totalX = totalY / (float)System.Math.Cos(degree);
-
-        if (totalX > 700 || totalX < -700
-            ||totalY < -700)
-        {
-            shouldUp = true;
-        }
+        Hook.SendMessage("down", new float[] { zR, hookSpeed });
     }
+    float zR = 0;
     void rotating()
     {
         //every sec, rotate(if co. boundary ,change the direc.)
-        float z = gameObject.transform.eulerAngles.z;
-        if (z > 180) z -= 360;
-        if (z >= originRotationPoint + ableRationDegree && R_direction)
+        if (zR >= ableRationDegree)
+        {
             R_direction = false;
-        else if (z <= originRotationPoint - ableRationDegree && !R_direction)
+        }
+        else if(zR <= -ableRationDegree)
+        {
             R_direction = true;
-        if (R_direction) transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
-        else transform.Rotate(0, 0 , -rotateSpeed * Time.deltaTime);
+        }
+        if (R_direction)
+        {
+            zR += rotateSpeed * Time.deltaTime;
+        }
+        else
+        {
+            zR -= rotateSpeed * Time.deltaTime;
+        }
+        transform.localRotation = Quaternion.Euler(0, 0, zR);
     }
     void freeHook()
     {
-        Destroy(transform.GetChild(0).gameObject);
+        if(transform.childCount>0) Destroy(transform.GetChild(0).gameObject);
         //sound effect here
         //soundPlayer.SendMessage("playSoundEffect")
     }
@@ -149,5 +145,6 @@ public class HookAction : MonoBehaviour
                 hookSpeed = speedTable[5];
                 break;
         }
+        Up();
     }
 }

@@ -8,7 +8,6 @@ public class MapSpawner : MonoBehaviour
     public int level;
     public int bgold, mgold, sgold, bstone, mstone, sstone;
     System.Random rdm = new System.Random();
-
     private GameObject newObject(int type, int size)
     {
         GameObject label;
