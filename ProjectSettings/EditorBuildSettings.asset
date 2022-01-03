@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/menu.unity
+    guid: 859b0f3bdf310474e95dbf57ce90e2e0
+  - enabled: 1
+    path: Assets/Scenes/Gold Miner.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Store.unity
+    guid: 06784c71d3e13e443a7f52361e5b7666
   m_configObjects: {}
