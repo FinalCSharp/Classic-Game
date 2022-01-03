@@ -31,6 +31,7 @@ public class HookAction : MonoBehaviour
     public void hookActionDone()
     {
         MOVE = shouldUp = false;
+        //do some condition to break this line
         score.SendMessage("pickedItem", getItemCode());
         hookSpeed = duplicatedHookSpeed;//restore speed
         freeHook();
