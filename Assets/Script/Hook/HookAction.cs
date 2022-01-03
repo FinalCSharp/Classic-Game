@@ -6,10 +6,10 @@ public class HookAction : MonoBehaviour
 {
     private bool MOVE = false, shouldUp = false;
     private bool R_direction = true, isPending = false;
-    public float ableRationDegree = 70, hookSpeed = 150,rotateSpeed = 200;
+    public float ableRationDegree = 70, hookSpeed = 150, rotateSpeed = 200;
     float duplicatedHookSpeed;
     float originX, originY;
-    float totalX, totalY,xSpeed,ySpeed;
+    float totalX, totalY, xSpeed, ySpeed;
     bool isCathed = false, isQpack = false;
     public float[] qPackSpeedTable;
     public float[] speedTable;
@@ -43,7 +43,7 @@ public class HookAction : MonoBehaviour
         {
             Up();
         }
-        else if (Input.GetKey(KeyCode.DownArrow) && !MOVE )
+        else if (Input.GetKey(KeyCode.DownArrow) && !MOVE)
         {
             totalX = totalY = 0;
             Down();
@@ -75,7 +75,8 @@ public class HookAction : MonoBehaviour
     {
         Hook.SendMessage("up", hookSpeed);
     }
-    void Down() {
+    void Down()
+    {
         Hook.SendMessage("down", new float[] { zR, hookSpeed });
     }
     float zR = 0;
@@ -86,7 +87,7 @@ public class HookAction : MonoBehaviour
         {
             R_direction = false;
         }
-        else if(zR <= -ableRationDegree)
+        else if (zR <= -ableRationDegree)
         {
             R_direction = true;
         }
@@ -102,7 +103,7 @@ public class HookAction : MonoBehaviour
     }
     void freeHook()
     {
-        if(transform.childCount>0) Destroy(transform.GetChild(0).gameObject);
+        if (transform.childCount > 0) Destroy(transform.GetChild(0).gameObject);
         //sound effect here
         //soundPlayer.SendMessage("playSoundEffect")
     }
