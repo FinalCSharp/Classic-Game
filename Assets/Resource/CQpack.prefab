@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1272940150291219014
+--- !u!1 &3760366104858333336
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5737643985250712776}
-  - component: {fileID: 7407300979956025491}
+  - component: {fileID: 4414527390167581565}
+  - component: {fileID: 7405061648711534789}
+  - component: {fileID: 4538968262337734305}
   m_Layer: 0
   m_Name: CQpack
   m_TagString: Untagged
@@ -17,27 +18,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5737643985250712776
+--- !u!4 &4414527390167581565
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272940150291219014}
+  m_GameObject: {fileID: 3760366104858333336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 75, y: 75, z: 75}
+  m_LocalPosition: {x: -38, y: -87, z: 0}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7407300979956025491
+--- !u!212 &7405061648711534789
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272940150291219014}
+  m_GameObject: {fileID: 3760366104858333336}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -82,3 +83,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &4538968262337734305
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3760366104858333336}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.4218339, y: -0.1808788}
+  - {x: -0.37767267, y: -0.31777883}
+  - {x: -0.24518879, y: -0.43701434}
+  - {x: -0.07295975, y: -0.5076724}
+  - {x: 0.12576605, y: -0.5032564}
+  - {x: 0.2714983, y: -0.4281822}
+  - {x: 0.4039821, y: -0.27803382}
+  - {x: 0.43047887, y: -0.15879844}
+  - {x: 0.41281435, y: -0.039562985}
+  - {x: 0.32890794, y: 0.08850472}
+  - {x: 0.1920079, y: 0.19890793}
+  - {x: 0.14343047, y: 0.28723055}
+  - {x: 0.25824982, y: 0.40204987}
+  - {x: 0.10810143, y: 0.35347244}
+  - {x: 0.094853036, y: 0.49478853}
+  - {x: 0.0065304562, y: 0.34905633}
+  - {x: -0.08179211, y: 0.406466}
+  - {x: -0.08179211, y: 0.31814346}
+  - {x: -0.28493404, y: 0.44179508}
+  - {x: -0.32909533, y: 0.40204996}
+  - {x: -0.17011468, y: 0.300479}
+  - {x: -0.19661145, y: 0.26514992}
+  - {x: -0.29818243, y: 0.24306926}
+  - {x: -0.25843725, y: 0.20332408}
+  - {x: -0.21427599, y: 0.20332408}
+  - {x: -0.3600082, y: 0.0796725}
+  - {x: -0.42625022, y: -0.057227522}
+  - {x: -0.4218339, y: -0.1808788}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0

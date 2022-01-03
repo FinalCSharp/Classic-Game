@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class MapSpawner : MonoBehaviour
 {
     public GameObject Bgold, Mgold, Sgold, Bstone, Mstone, Sstone, Qpack;
     public int level;
-    public int bgold, mgold, sgold, bstone, mstone, sstone;
+    public int bgold, mgold, sgold, bstone, mstone, sstone, qPckNum;
     System.Random rdm = new System.Random();
-
     private GameObject newObject(int type, int size)
     {
         GameObject label;
@@ -52,6 +51,30 @@ public class Spawner : MonoBehaviour
     private List<pack> goldlist = new List<pack>();
     private List<pack> buildList = new List<pack>();
     private List<pack> combinedlist = new List<pack>();
+    public void setObjNum(int []value)
+    {
+        bgold = value[0];
+        mgold = value[1];
+        sgold = value[2];
+        bstone = value[3];
+        mstone = value[4];
+        sstone = value[5];
+        qPckNum = value[6];
+    }
+    public void reset()
+    {
+        biggoldlist.Clear();
+        buildList.Clear();
+        combinedlist.Clear();
+
+        for (int i = 0; i < transform.childCount; i++) Destroy(transform.GetChild(i).gameObject);
+    }
+    public void Spawn()
+    {
+        spawn();
+        GameObject.Find("CountDown").SendMessage("start");
+        // GameObject.Find().GetComponent<>.SendMessage("spawned"); //here is use to send the message that the map has been spawn
+    }
     private bool isEmpty(int x, int y, int size, List<pack> ls, bool isSameItem)
     {
         bool returnValue = true;
@@ -85,14 +108,6 @@ public class Spawner : MonoBehaviour
             tp = 1 - (x - MaxHeight) / MaxHeight;
         }
         return tp;
-    }
-    private void reset()
-    {
-        biggoldlist.Clear();
-        buildList.Clear();
-        combinedlist.Clear();
-
-        for (int i = 0; i < transform.childCount; i++) Destroy(transform.GetChild(i).gameObject);
     }
     private void buildGold(int tp, int type, bool isBigBig, int size, int margin, double distance)
     {
@@ -242,7 +257,7 @@ public class Spawner : MonoBehaviour
     private void spawn()
     {
         reset();
-        int QpackNum = rdm.Next() % 3;
+        int QpackNum = rdm.Next() % (qPckNum + 1);
         build(QpackNum, 7, 35, 80, MaxWidth * 0.45);//build Qpack
         combine(combinedlist, buildList, true);
         buildGold(bgold, 1, true, 100, 50, MaxWidth * 0.45);//biggoldlist should not be combied XD...
@@ -261,8 +276,7 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         MaxWidth = 900; MaxHeight = 550;
-        spawn();
-        // GameObject.Find().GetComponent<>.SendMessage("spawned"); //here is use to send the message that the map has been spawn
+        Spawn();
     }
 
     // Update is called once per frame

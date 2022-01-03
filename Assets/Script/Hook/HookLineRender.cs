@@ -20,6 +20,6 @@ public class HookLineRender : MonoBehaviour
     public void UpdataLine()
     {
         lineRenderer.SetPosition(0, new Vector2(originX, originY));
-        lineRenderer.SetPosition(1, new Vector2(transform.localPosition.x, transform.localPosition.y + 10));//设置线条2点的位置
+        lineRenderer.SetPosition(1, new Vector2(transform.position.x, transform.position.y + 10));//设置线条2点的位置
     }
 }
