@@ -13,7 +13,7 @@ public class ShowBombMap : MonoBehaviour
             for (int j = 0; j < 10; j++)
             {
                 if (matrix[i, j] == 0) continue;
-                Instantiate(obj[matrix[i, j] - 1], new Vector3(j - 7, i - 3.5f, 0), Quaternion.Euler(0, 0, 0), transform);
+                Instantiate(obj[matrix[i, j] - 1], new Vector3(i - 7,j - 4.5f , 0), Quaternion.Euler(0, 0, 0), transform);
             }
         }
     }
