@@ -5,7 +5,7 @@ using UnityEngine;
 public class BombAnimation : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject Generate_Position;
+    public GameObject BombGenerator;
     public GameObject Bomb;
     private bool Cd = false;
     private int CoolDownTime = 3;
@@ -22,17 +22,22 @@ public class BombAnimation : MonoBehaviour
     void Update()
     {
     }
-    public void GenerateBomb()
-    {
+    public void PlaceBomb() {
         if (!Cd)
         {
             Vector2 Location = transform.parent.position;
-            //Use Round to Get the Matrix[i, j] through Location.x / y
+            int x = (int)(Location.x + 0.5f);
+            int y = (int)(Location.y + 0.5f);
+            BombControl(x, y);
+            //Start CoolDown Timer
             Cd = true;
-            Timer();
+            CdTimer();
         }
     }
-    IEnumerator Timer()
+    public void BombControl(int x, int y) {
+        //BombGeneretor's location should be fixed?
+    }
+    IEnumerator CdTimer()
     {
         yield return new WaitForSeconds(CoolDownTime);
         Cd = false;
