@@ -276,7 +276,6 @@ public class MapSpawner : MonoBehaviour
     void Start()
     {
         MaxWidth = 900; MaxHeight = 550;
-        Spawn();
     }
 
     // Update is called once per frame
