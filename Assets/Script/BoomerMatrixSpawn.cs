@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class BoomerMatrixSpawn : MonoBehaviour
 {
-    public int[,] Matrix = new int[Width, Height];
+    int[,] Matrix = new int[Width, Height];
     private static int Width = 15, Height = 10;
-    private static int Space = 0, Breakable = -1, Unbreakable = -2;
+    public static int Space = 0, Breakable = 1, Unbreakable = 2;
     private static int[] P_x = { 0, 0, Width - 1, Width - 1 }, P_y = {0,Height-1,0,Height-1 };
-    // 0, 14 line can be Destory
-    // Start is called before the first frame update
     void Start()
     {
         Random.seed = System.Guid.NewGuid().GetHashCode();
         SpawnMatrix();
+        transform.SendMessage("Show", Matrix);
     }
-    // Update is called once per frame
-    //void Update() { }
-    //
     public void DestroyBlock(int x, int y)
     {//Distroy Blocks:(int location(x, y))//Just Use Trigger to Do It? Anyway.
         if (Matrix[x, y] == Breakable)
@@ -31,7 +27,7 @@ public class BoomerMatrixSpawn : MonoBehaviour
         for (int i = 0; i < Width; i++) {
             for (int j = 0; j < Height; j++) {
                 int Item = Random.Range(0, 3);
-                Matrix[i, j] = -Item;
+                Matrix[i, j] = Item;
             }
         }
         //Make Sure the Way to Other Player Exist.
