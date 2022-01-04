@@ -6,15 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/menu.unity
+    path: Assets/Scenes/Gold Miner/menu.unity
     guid: 859b0f3bdf310474e95dbf57ce90e2e0
   - enabled: 1
-    path: Assets/Scenes/Gold Miner.unity
+    path: Assets/Scenes/Gold Miner/Gold Miner.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Store.unity
+    path: Assets/Scenes/Gold Miner/Store.unity
     guid: 06784c71d3e13e443a7f52361e5b7666
   - enabled: 1
-    path: Assets/Scenes/success.unity
+    path: Assets/Scenes/Gold Miner/success.unity
     guid: f617b06909263844ab73976ed103c87d
+  - enabled: 1
+    path: Assets/Scenes/Gold Miner/fail.unity
+    guid: 8d118d3a639a29643afa0faffb91863d
   m_configObjects: {}

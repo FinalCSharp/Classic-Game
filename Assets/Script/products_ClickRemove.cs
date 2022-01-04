@@ -21,11 +21,8 @@ public class products_ClickRemove : MonoBehaviour , IPointerClickHandler
     }
 
     // Update is called once per frame
-    /*void Update()
+    void Update()
     {
-        if (Input.GetMouseButton(0))
-        {
-            Destroy(button);
-        }
-    }*/
+
+    }
 }
