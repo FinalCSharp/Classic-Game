@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class BombAnimation : MonoBehaviour
 {
     //Control the Bomb Blow up (count down) & Judge if the temp or Player Been Attack;
-    private float Timer = 0f, BlowUpTime = 3.0f, MinSize_X, MaxSize_X, MinSize_Y, MaxSize_Y, t;
+    public float BlowUpTime = 3.0f, MinSize_X, MaxSize_X, MinSize_Y, MaxSize_Y, AnimationPeriod;
+    float Timer = 0f, t;
     private bool EnLarge = true;
+    public GameObject parent;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +19,7 @@ public class BombAnimation : MonoBehaviour
     void Update()
     {
         t += Time.deltaTime;
-        if ((Time.time - Timer) == BlowUpTime) BlowUp();
+        if ((Time.time - Timer) >= BlowUpTime) BlowUp();
         else
         {
             //Animation (Zoom);
@@ -25,13 +27,13 @@ public class BombAnimation : MonoBehaviour
             Vector3 Scale = this.transform.localScale;
             if (EnLarge)
             {
-                Scale.x = Mathf.Lerp(MinSize_X, MaxSize_X, t);
-                Scale.y = Mathf.Lerp(MinSize_Y, MaxSize_Y, t);
+                Scale.x = Mathf.Lerp(MinSize_X, MaxSize_X, t/ AnimationPeriod);
+                Scale.y = Mathf.Lerp(MinSize_Y, MaxSize_Y, t/ AnimationPeriod);
             }
             else
             {
-                Scale.x = Mathf.Lerp(MaxSize_X, MinSize_X, t);
-                Scale.y = Mathf.Lerp(MaxSize_Y, MinSize_Y, t);
+                Scale.x = Mathf.Lerp(MaxSize_X, MinSize_X, t/ AnimationPeriod);
+                Scale.y = Mathf.Lerp(MaxSize_Y, MinSize_Y, t/ AnimationPeriod);
             }
             if (Scale.x == MaxSize_X || Scale.x == MinSize_X) EnLarge = !EnLarge;
             transform.localScale = Scale;
@@ -39,6 +41,12 @@ public class BombAnimation : MonoBehaviour
     }
     private void BlowUp()
     {
+        try
+        {
+            parent.SendMessage("Show");
+        }
+        catch (System.Exception) { }
+        Destroy(transform.gameObject);
         //Judge Matrix & Destroy Bomb;
     }
 }
