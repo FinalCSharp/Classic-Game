@@ -12,11 +12,20 @@ public class Score : MonoBehaviour
     {
         txt = GetComponent<Text>();
     }
+    public void setScore(int value)
+    {
+        scoreNow += value;
+        refreshScore();
+    }
+    void refreshScore()
+    {
+        txt.text = System.Convert.ToString(scoreNow);
+    }
     public void pickedItem(int itemCode)// qPack item first ,later is bgold,mgold,sgold and so on 
     {
         if (itemCode == -1) return;
         scoreNow += itemTable[itemCode];
-        txt.text = System.Convert.ToString(scoreNow);
+        refreshScore();
     }
     // Update is called once per frame
     void Update()

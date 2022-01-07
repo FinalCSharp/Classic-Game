@@ -71,9 +71,9 @@ public class MapSpawner : MonoBehaviour
     }
     public void Spawn()
     {
-        spawn();
+        spawn();//pending
+        // GameObject.Find("Obj").SendMessage("spawned"); //here is use to send the message that the map has been spawn
         GameObject.Find("CountDown").SendMessage("start");
-        // GameObject.Find().GetComponent<>.SendMessage("spawned"); //here is use to send the message that the map has been spawn
     }
     private bool isEmpty(int x, int y, int size, List<pack> ls, bool isSameItem)
     {
@@ -276,7 +276,6 @@ public class MapSpawner : MonoBehaviour
     void Start()
     {
         MaxWidth = 900; MaxHeight = 550;
-        Spawn();
     }
 
     // Update is called once per frame

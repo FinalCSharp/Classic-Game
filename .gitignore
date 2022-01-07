@@ -5,6 +5,9 @@ Temp/
 Library/
 Builds/
 Logs/
+UserSettings/
+venv/
+Assets/ML-Agents
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # 
