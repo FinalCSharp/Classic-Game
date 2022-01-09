@@ -10,10 +10,10 @@ public class ExplosionCalculate : MonoBehaviour
             return getVTop(xPosition, yPosition + 1);
         if (TransformMatrix.matrix[xPosition, yPosition].name.Equals("Deletable(Clone)"))
         {
-            return yPosition - 1;
+            return yPosition;
         }else if(TransformMatrix.matrix[xPosition, yPosition].name.Equals("Undeletable(Clone)"))
         {
-            return yPosition;
+            return yPosition - 1;
         }
         return getVTop(xPosition, yPosition + 1);
     }
@@ -24,10 +24,10 @@ public class ExplosionCalculate : MonoBehaviour
             return getVBottom(xPosition, yPosition - 1);
         if (TransformMatrix.matrix[xPosition, yPosition].name.Equals("Deletable(Clone)"))
         {
-            return yPosition + 1;
+            return yPosition;
         }else if(TransformMatrix.matrix[xPosition, yPosition].name.Equals("Undeletable(Clone)")) 
         {
-            return yPosition;
+            return yPosition + 1;
         }
         return getVBottom(xPosition, yPosition - 1);
     }
@@ -38,10 +38,10 @@ public class ExplosionCalculate : MonoBehaviour
             return getHLeft(xPosition - 1, yPosition);
         if (TransformMatrix.matrix[xPosition, yPosition].name.Equals("Deletable(Clone)"))
         {
-            return xPosition + 1;
+            return xPosition;
         }else if (TransformMatrix.matrix[xPosition, yPosition].name.Equals("Undeletable(Clone)"))
         {
-            return xPosition;
+            return xPosition + 1;
         }
         return getHLeft(xPosition - 1, yPosition);
     }
@@ -52,10 +52,10 @@ public class ExplosionCalculate : MonoBehaviour
             return getHRight(xPosition + 1, yPosition);
         if (TransformMatrix.matrix[xPosition, yPosition].name.Equals("Deletable(Clone)"))
         {
-            return xPosition - 1;
+            return xPosition;
         }else if (TransformMatrix.matrix[xPosition, yPosition].name.Equals("Undeletable(Clone)"))
         {
-            return xPosition;
+            return xPosition - 1;
         }
         return getHRight(xPosition + 1, yPosition);
     }

@@ -7,6 +7,7 @@ public class Player1Controller : MonoBehaviour
     public float runSpeed = 50;
     Rigidbody2D rb;
     BombGenerator bombGenerator;
+    float time = 0;
     public void setRunSpeed(float value)
     {
         runSpeed += value;
@@ -37,7 +38,8 @@ public class Player1Controller : MonoBehaviour
         {
             rb.MovePosition(transform.localPosition + new Vector3(0, -runSpeed * Time.deltaTime, 0));
         }
-        if (Input.GetKey(KeyCode.Space))
+        int[] playerPosition = BombIntIndex.getIndex(transform.localPosition);
+        if (Input.GetKey(KeyCode.Space) && !TransformMatrix.matrix[playerPosition[0], playerPosition[1]])
         {
             bombGenerator.PlaceBomb();
         }

@@ -159,3 +159,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bomb: {fileID: 6766271675498510093, guid: 38731323f38d2a644adfb32d2a01c106, type: 3}
+  thisPlayerLabel: 0

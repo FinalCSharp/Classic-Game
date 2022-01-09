@@ -12,6 +12,12 @@ public class TriggerToggle : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.name.Equals("Deletable(Clone)")) return;
         boxCollider2D.isTrigger = false;
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.name.Equals("Deletable(Clone)")) return;
+        boxCollider2D.isTrigger = true;
     }
 }

@@ -2601,6 +2601,7 @@ MonoBehaviour:
   MinSize_Y: 0
   MaxSize_Y: 0
   AnimationPeriod: 0
+  parent: {fileID: 0}
 --- !u!1 &1586168384
 GameObject:
   m_ObjectHideFlags: 0
@@ -2884,8 +2885,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1703172744}
-  - component: {fileID: 1703172743}
-  - component: {fileID: 1703172745}
+  - component: {fileID: 1703172746}
   m_Layer: 0
   m_Name: ContextApi
   m_TagString: Untagged
@@ -2893,18 +2893,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1703172743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1703172742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f308d6279d5c0c4439e19ba76a179611, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1703172744
 Transform:
   m_ObjectHideFlags: 0
@@ -2919,7 +2907,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1703172745
+--- !u!114 &1703172746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2928,9 +2916,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1703172742}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df44e14c4ea9d4041a830fe9d0726821, type: 3}
+  m_Script: {fileID: 11500000, guid: e545924ea633e414e99999c0107a4be0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allPlayerInitHealth: 3
+  allPlayerInitBomb: 3
 --- !u!1001 &1745090186
 PrefabInstance:
   m_ObjectHideFlags: 0
