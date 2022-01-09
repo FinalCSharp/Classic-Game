@@ -26,14 +26,5 @@ public class ShowBombMap : MonoBehaviour
                 TransformMatrix.SetMatrix(i, j, Instantiate(obj[matrix[i, j] - 1], new Vector3(i - 7, j - 4.5f, 0), Quaternion.Euler(0, 0, 0), transform).transform);
             }
         }
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 14; j >= 0 ; j--)
-            {
-                Debug.Log(TransformMatrix.matrix[j, i]);
-            }
-            Debug.Log("nextLine");
-        }
-
     }
 }
