@@ -4,27 +4,21 @@ using UnityEngine;
 
 public class random_products : MonoBehaviour
 {
+    public int minItem = 1;
+    public int maxItem = 4;
     public GameObject[] products = new GameObject[4];
-    Vector2 pos1 = new Vector2(440, 220);
-    Vector2 pos2 = new Vector2(280, 220);
+    int x = -290;
+    static System.Random rdm = new System.Random();
     // Start is called before the first frame update
     void Start()
     {
-
-        int obj1, obj2;
-        while (true)
+        int itemNum = rdm.Next(0, maxItem);
+        for(int i = 0; i< itemNum + 1; i++)
         {
-            obj1 = UnityEngine.Random.Range(0,4);
-            obj2 = UnityEngine.Random.Range(0,4);
-            if (obj1 != obj2) break;
-        }
-        GameObject ob1 = products[obj1];
-        GameObject ob2 = products[obj2];
-        Instantiate(ob1,new Vector3(100,100),new Quaternion(0,0,0,0),transform);
-        Instantiate(ob2,new Vector3(200,100),new Quaternion(0,0,0,0),transform);
-        
+            Instantiate(products[rdm.Next()%products.Length], transform.position + new Vector3(x, -65, 0), new Quaternion(0, 0, 0, 0), transform);
+            x += 140;
+        }   
     }
-
     // Update is called once per frame
     void Update()
     {
