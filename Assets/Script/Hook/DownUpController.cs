@@ -8,12 +8,21 @@ public class DownUpController : MonoBehaviour
     float x = 0, y = 0, totalX = 0, totalY = 0;
     bool isDown = false, isUp = false;
     float originX,originY;
+    float buff = 1;
     GameObject hook;
+    public void resetBuff()
+    {
+        buff = 1;
+    }
+    public void setBuff(float value)
+    {
+        buff += value;
+    }
     public void up(float hookSpeed)
     {
         this.hookSpeed = hookSpeed;
-        y = -hookSpeed * (float)System.Math.Cos(degree / 180 * System.Math.PI);
-        x = hookSpeed * (float)System.Math.Sin(degree / 180 * System.Math.PI);
+        y = -hookSpeed * (float)System.Math.Cos(degree / 180 * System.Math.PI) * buff;
+        x = hookSpeed * (float)System.Math.Sin(degree / 180 * System.Math.PI) * buff;
         isDown = false; //break action
         isUp = true;
     }
@@ -57,6 +66,7 @@ public class DownUpController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(buff);
         if (isDown)
         {
             Down();
