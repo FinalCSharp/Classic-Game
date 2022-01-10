@@ -11,13 +11,12 @@ public class DetactBombDestroy : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
         if (collision.name.Equals("VExplosion(Clone)") || collision.name.Equals("HExplosion(Clone)")) return;
-        if (collision.name.Equals("Player1(Clone)"))
+        if (collision.name.Equals("Player1"))
         {
             statusPlayer.AdjustHealth(0, -1);
         }
-        if (collision.name.Equals("Player2(Clone)"))
+        if (collision.name.Equals("Player2"))
         {
             statusPlayer.AdjustHealth(1, -1);
         }
@@ -28,6 +27,11 @@ public class DetactBombDestroy : MonoBehaviour
         if (collision.name.Equals("Npc2"))
         {
             statusPlayer.AdjustHealth(3, -1);
+        }
+        if (collision.name.Equals("bomb"))
+        {
+            //make another bomb explos
+            collision.SendMessage("BlowUp");
         }
         if (collision.name.Equals("Deletable(Clone)"))
         {

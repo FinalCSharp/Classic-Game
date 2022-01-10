@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 7576147563473407589}
   - component: {fileID: 7692616096267978871}
   - component: {fileID: 6144287224243671286}
+  - component: {fileID: 5450959969350656206}
   m_Layer: 0
   m_Name: bombNpc2
   m_TagString: Untagged
@@ -204,3 +205,15 @@ MonoBehaviour:
   - {fileID: 2294658036636693299, guid: 73ead7d82bdbb4246af40b2fa16a3447, type: 3}
   - {fileID: 4145943300567122161, guid: 17bdb8b0f15f00949b64d7043715d2a7, type: 3}
   animateDuration: 1.5
+--- !u!114 &5450959969350656206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062991090658244834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd9fbed973cd5be439f7f09fec8c42d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

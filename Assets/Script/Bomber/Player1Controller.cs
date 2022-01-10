@@ -7,7 +7,6 @@ public class Player1Controller : MonoBehaviour
     public float runSpeed = 50;
     Rigidbody2D rb;
     BombGenerator bombGenerator;
-    float time = 0;
     public void setRunSpeed(float value)
     {
         runSpeed += value;

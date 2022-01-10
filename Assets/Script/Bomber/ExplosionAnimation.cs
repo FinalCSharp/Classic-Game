@@ -17,7 +17,7 @@ public class ExplosionAnimation : MonoBehaviour
     {
         Vector3 tp = transform.position;
         int[] bombIndex = BombIntIndex.getIndex(tp);
-        int[] position = explosionCalculate.GetArea(bombIndex[0], bombIndex[1]);
+        int[] position = explosionCalculate.GetArea(bombIndex[0], bombIndex[1],statusPlayer.power[thisPlayerLabel]);
 
         explosing[0] = Instantiate(Explosion[0], transform.localPosition - new Vector3(0, (bombIndex[1] - position[0])/2.0f, 0), Quaternion.Euler(0, 0, 0), transform).transform;
         explosing[1] = Instantiate(Explosion[0], transform.localPosition - new Vector3(0, (bombIndex[1] - position[1])/2.0f, 0), Quaternion.Euler(0, 0, 0), transform).transform;

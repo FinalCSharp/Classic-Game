@@ -17,7 +17,10 @@ public class TriggerToggle : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.name.Equals("Deletable(Clone)")) return;
-        boxCollider2D.isTrigger = true;
+        if (collision.name.Equals("Player1") || collision.name.Equals("Player2")
+            || collision.name.Equals("Npc1") || collision.name.Equals("Npc2"))
+        {
+            boxCollider2D.isTrigger = true;
+        }
     }
 }
