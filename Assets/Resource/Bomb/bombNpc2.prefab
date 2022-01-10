@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3014430233775009337}
   - component: {fileID: 4527075945690829277}
   - component: {fileID: 8974416682046109394}
+  - component: {fileID: 4675929065101151479}
   m_Layer: 0
   m_Name: bomb
   m_TagString: Untagged
@@ -142,6 +143,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 5}
   m_EdgeRadius: 0
+--- !u!50 &4675929065101151479
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6947274475241881193}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &7062991090658244834
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +175,6 @@ GameObject:
   - component: {fileID: 7576147563473407589}
   - component: {fileID: 7692616096267978871}
   - component: {fileID: 6144287224243671286}
-  - component: {fileID: 5450959969350656206}
   m_Layer: 0
   m_Name: bombNpc2
   m_TagString: Untagged
@@ -203,17 +224,5 @@ MonoBehaviour:
   thisPlayerLabel: 3
   Explosion:
   - {fileID: 2294658036636693299, guid: 73ead7d82bdbb4246af40b2fa16a3447, type: 3}
-  - {fileID: 4145943300567122161, guid: 17bdb8b0f15f00949b64d7043715d2a7, type: 3}
+  - {fileID: 6846372969837843604, guid: dbbaa9bcb431ea64ea9dba8c1f757e4f, type: 3}
   animateDuration: 1.5
---- !u!114 &5450959969350656206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7062991090658244834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd9fbed973cd5be439f7f09fec8c42d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
