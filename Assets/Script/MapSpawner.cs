@@ -276,6 +276,14 @@ public class MapSpawner : MonoBehaviour
     void Start()
     {
         MaxWidth = 900; MaxHeight = 550;
+        bgold = 2;
+        mgold = Random.Range(3, 7);
+        sgold = Random.Range(4, 8);
+        bstone = Random.Range(2, 4);
+        mstone = Random.Range(3, 7);
+        sstone = Random.Range(4, 8);
+        qPckNum = 1;
+        Spawn();
     }
 
     // Update is called once per frame

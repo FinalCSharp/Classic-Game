@@ -6,6 +6,8 @@ public class Player2Controller : MonoBehaviour
 {
     public float runSpeed = 50;
     Rigidbody2D rb;
+    BombGenerator bombGenerator;
+
     public void setRunSpeed(float value)
     {
         runSpeed += value;
@@ -13,6 +15,7 @@ public class Player2Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bombGenerator = transform.GetComponent<BombGenerator>();
         rb = transform.GetComponent<Rigidbody2D>();
     }
 
@@ -34,6 +37,11 @@ public class Player2Controller : MonoBehaviour
         if (Input.GetKey(KeyCode.DownArrow))
         {
             rb.MovePosition(transform.localPosition + new Vector3(0, -runSpeed * Time.deltaTime, 0));
+        }
+        int[] playerPosition = BombIntIndex.getIndex(transform.localPosition);
+        if (Input.GetKey(KeyCode.KeypadEnter) && !TransformMatrix.matrix[playerPosition[0], playerPosition[1]])
+        {
+            bombGenerator.PlaceBomb();
         }
     }
 }

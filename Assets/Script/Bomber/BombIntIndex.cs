@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BombIntIndex : MonoBehaviour
 {
-    public int[] getIndex(Vector3 vector)
+    public static int[] getIndex(Vector3 vector)
     {
         int[] temp = new int[2];
         temp[0] = (int)System.Math.Round(vector.x + 7, 0);
