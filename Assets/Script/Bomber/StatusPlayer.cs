@@ -26,12 +26,19 @@ public class StatusPlayer : MonoBehaviour
         power[0] = power[1] = power[2] = power[3] = allPlayerInitPower;
         statusP1 = GameObject.Find("StatusP1").transform;
         statusP2 = GameObject.Find("StatusP2").transform;
-        statusNpc1 = GameObject.Find("StatusNpc1").transform;
-        statusNpc2 = GameObject.Find("StatusNpc2").transform;
         player[0] = GameObject.Find("Player1");
         player[1] = GameObject.Find("Player2");
-        player[2] = GameObject.Find("Npc1");
-        player[3] = GameObject.Find("Npc2");
+        
+        try
+        {
+            statusNpc1 = GameObject.Find("StatusNpc1").transform;
+            statusNpc2 = GameObject.Find("StatusNpc2").transform;
+            player[2] = GameObject.Find("Npc1");
+            player[3] = GameObject.Find("Npc2");
+        }
+        catch (System.Exception) {
+            Debug.Log("This is PVP mode");
+        }
     }
     public void throwsData(int player)
     {
