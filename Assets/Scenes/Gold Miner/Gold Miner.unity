@@ -1240,7 +1240,7 @@ MonoBehaviour:
   Sgold: {fileID: 6799037039367202783, guid: b1389744248d0ee4bbb66ef9c0f76adc, type: 3}
   Bstone: {fileID: 3228133460695619892, guid: cd7989538c5a6664495f12bd7c284d19, type: 3}
   Mstone: {fileID: 2548730051253654067, guid: 4fb883f1d2a2c1642a0adde75c213778, type: 3}
-  Sstone: {fileID: 3760366104858333336, guid: a1e1216cff5aaa9419ec9f7a7287ac1b, type: 3}
+  Sstone: {fileID: 554081398468557495, guid: 80c149e63c9bc974ab364500a9ad517c, type: 3}
   Qpack: {fileID: 3760366104858333336, guid: a1e1216cff5aaa9419ec9f7a7287ac1b, type: 3}
   level: 100
   bgold: 2
@@ -1248,7 +1248,7 @@ MonoBehaviour:
   sgold: 5
   bstone: 5
   mstone: 5
-  sstone: 10
+  sstone: 0
   qPckNum: 2
 --- !u!1 &1541413885
 GameObject:
