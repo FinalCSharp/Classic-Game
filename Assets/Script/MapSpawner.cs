@@ -283,7 +283,7 @@ public class MapSpawner : MonoBehaviour
         mstone = Random.Range(3, 7);
         sstone = Random.Range(4, 8);
         qPckNum = 1;
-        spawn();
+        Spawn();
     }
 
     // Update is called once per frame
