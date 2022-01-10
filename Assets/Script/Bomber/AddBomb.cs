@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class AddBomb : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    StatusPlayer statusPlayer;
+    private void Start()
     {
-        
+        statusPlayer = GameObject.Find("ContextApi").GetComponent<StatusPlayer>();
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        statusPlayer.AdjustMaxBomb(GetPlayerCode.GetCode(collision.name), 1);
+        Destroy(transform.gameObject);
     }
 }
