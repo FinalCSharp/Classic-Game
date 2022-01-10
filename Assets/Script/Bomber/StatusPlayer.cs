@@ -7,12 +7,15 @@ public class StatusPlayer : MonoBehaviour
     public int allPlayerInitHealth = 3;
     public int allPlayerInitBomb = 1;
     public int allPlayerInitPower = 2;
+    public int mode = 1;
     public int[] health;
     public int[] power;
     public int[] maxBomb;
     private int[] nowPlacedBomb = { 0, 0, 0, 0 };
     private float[] LastAjustHealthTime = { 0, 0, 0, 0 };
     Transform statusP1, statusP2, statusNpc1,statusNpc2;
+    public Transform Canvas;
+    public GameObject EndUI, win, lose;
     GameObject[] player;
     //another status can add here;
     public void Start()
@@ -29,15 +32,12 @@ public class StatusPlayer : MonoBehaviour
         player[0] = GameObject.Find("Player1");
         player[1] = GameObject.Find("Player2");
         
-        try
+        if(mode == 2)
         {
             statusNpc1 = GameObject.Find("StatusNpc1").transform;
             statusNpc2 = GameObject.Find("StatusNpc2").transform;
             player[2] = GameObject.Find("Npc1");
             player[3] = GameObject.Find("Npc2");
-        }
-        catch (System.Exception) {
-            Debug.Log("This is PVP mode");
         }
     }
     public void throwsData(int player)
@@ -67,11 +67,29 @@ public class StatusPlayer : MonoBehaviour
         LastAjustHealthTime[player] = Time.time;
         health[player] += value;
         throwsData(player);
-        if(health[player] == 0)
+        if(mode == 1)//only pvp
         {
-            Destroy(this.player[player]);
-            //this player die need destroy from map
-            //check if did another player is alive or end game XD;
+            if(health[player] == 0)
+            {
+                Destroy(this.player[player]);
+                GameObject tp = Instantiate(EndUI, Canvas.transform);
+                Instantiate(statusP1, new Vector3(100, 500, 0), Quaternion.Euler(0, 0, 0), tp.transform);
+                if(player == 1)
+                {
+                    Instantiate(lose, new Vector3(300, 300, 0), Quaternion.Euler(0, 0, 0), tp.transform);
+                    Instantiate(win, new Vector3(300, 500, 0), Quaternion.Euler(0, 0, 0), tp.transform);
+                }
+                else
+                {
+                    Instantiate(lose, new Vector3(300, 500, 0), Quaternion.Euler(0, 0, 0), tp.transform);
+                    Instantiate(win, new Vector3(300, 300, 0), Quaternion.Euler(0, 0, 0), tp.transform);
+                }
+                Instantiate(statusP2, new Vector3(100, 300, 0), Quaternion.Euler(0, 0, 0), tp.transform);
+            }
+        }
+        else
+        {
+
         }
     }
     public void AdjustMaxBomb(int player,int value)

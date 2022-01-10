@@ -20,8 +20,6 @@ public class ExplosionCalculate : MonoBehaviour
     }
     private int getVBottom(int xPosition, int yPosition, int power,int now)
     {
-        Debug.Log(power);
-        Debug.Log(now);
         if (now > power) return yPosition;
         if (yPosition < 0) return 0;
         if (TransformMatrix.matrix[xPosition, yPosition] == null)

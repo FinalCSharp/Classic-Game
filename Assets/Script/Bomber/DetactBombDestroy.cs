@@ -37,7 +37,7 @@ public class DetactBombDestroy : MonoBehaviour
         {
             //delete Block sendMessage to the block and let the block determine what will happens XD
             //Transform matrix will auto delete
-            Destroy(collision.gameObject);
+            collision.SendMessage("DestroyIt");
         }
     }
 }
