@@ -17,6 +17,7 @@ public class StatusPlayer : MonoBehaviour
     public Transform Canvas;
     public GameObject EndUI, win, lose;
     GameObject[] player;
+    bool isEnd = false;
     //another status can add here;
     public void Start()
     {
@@ -69,8 +70,9 @@ public class StatusPlayer : MonoBehaviour
         throwsData(player);
         if(mode == 1)//only pvp
         {
-            if(health[player] == 0)
+            if(health[player] == 0 && !isEnd)
             {
+                isEnd = true;
                 Destroy(this.player[player]);
                 GameObject tp = Instantiate(EndUI, Canvas.transform);
                 Instantiate(statusP1, new Vector3(100, 500, 0), Quaternion.Euler(0, 0, 0), tp.transform);
