@@ -726,7 +726,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9180003008678579631, guid: 3ff9fc7dfb8e9ff489fd0699a1773f8e, type: 3}
       propertyPath: hookSpeed
-      value: 250
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 9180003008678579631, guid: 3ff9fc7dfb8e9ff489fd0699a1773f8e, type: 3}
       propertyPath: rotateSpeed
