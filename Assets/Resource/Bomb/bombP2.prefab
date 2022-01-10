@@ -61,7 +61,7 @@ MonoBehaviour:
   Explosion:
   - {fileID: 2294658036636693299, guid: 73ead7d82bdbb4246af40b2fa16a3447, type: 3}
   - {fileID: 6846372969837843604, guid: dbbaa9bcb431ea64ea9dba8c1f757e4f, type: 3}
-  animateDuration: 1.5
+  animateDuration: 0.4
 --- !u!1 &9160255131125829941
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,12 +160,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 582cb63fb4d95754c962cff48e448473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlowUpTime: 3
+  BlowUpTime: 1.5
   MinSize_X: 0.1
   MaxSize_X: 0.2
   MinSize_Y: 0.1
   MaxSize_Y: 0.2
-  AnimationPeriod: 3
+  AnimationPeriod: 1.5
   parent: {fileID: 9039470093908875198}
 --- !u!61 &7205168682528987534
 BoxCollider2D:
