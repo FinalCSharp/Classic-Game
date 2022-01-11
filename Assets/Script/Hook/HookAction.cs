@@ -34,6 +34,7 @@ public class HookAction : MonoBehaviour
         //do some condition to break this line
         score.SendMessage("pickedItem", getItemCode());
         hookSpeed = duplicatedHookSpeed;//restore speed
+        transform.localPosition = new Vector3(0, 0, 0);
         freeHook();
     }
     // Update is called once per frame
